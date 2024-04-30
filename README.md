@@ -20,7 +20,7 @@ Conversational AI is a document ingested search application implemented using LL
 
 ## Features to be implemented
 
-- [ ] Setup database connection **Supabase**
+- [x] Setup database connection with **Supabase**
 - [ ] Authentication with **Clerk**
 - [ ] File uploads with **uploadthing**
 - [ ] ORM using **Drizzle ORM**
