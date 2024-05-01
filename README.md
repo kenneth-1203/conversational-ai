@@ -11,7 +11,6 @@ Conversational AI is a document ingested search application implemented using LL
 
 - **Framework:** [Next.js](https://nextjs.org)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
-- **User Management:** [Clerk](https://clerk.com)
 - **Database Management:** [Supabase](https://supabase.com)
 - **ORM:** [Drizzle ORM](https://orm.drizzle.team)
 - **UI Components:** [shadcn/ui](https://ui.shadcn.com)
@@ -20,8 +19,8 @@ Conversational AI is a document ingested search application implemented using LL
 
 ## Features to be implemented
 
-- [x] Setup database connection with **Supabase**
-- [ ] Authentication with **Clerk**
+- [x] Database connection and authentication with **Supabase**
+- [x] Setup API routes with **tRPC** and **React Query**
 - [ ] File uploads with **uploadthing**
 - [ ] ORM using **Drizzle ORM**
 - [ ] Validation with **Zod**
