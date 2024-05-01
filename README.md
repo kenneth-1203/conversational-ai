@@ -1,6 +1,6 @@
 # Conversational AI
 
-Conversational AI is a document ingested search application implemented using LLMs.
+Conversational AI is a context aware search application implemented using LLMs.
 
 > **Warning**
 > This project is still in development and is not ready for production use.
