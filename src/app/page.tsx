@@ -1,10 +1,6 @@
-import { trpc } from "@/client/utils/trpc";
-import { createCaller } from "@/server/trpc/routers";
 import Image from "next/image";
 
 const Page = async () => {
-  const ping = await createCaller({ session: null }).getHello();
-  console.log(ping);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
