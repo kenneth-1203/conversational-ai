@@ -9,9 +9,9 @@ import {
   timestamp,
 } from "drizzle-orm/pg-core";
 
-import { users } from "./users";
-import { topics } from "./topics";
-import { projects } from "./projects";
+import { users } from "./users.schema";
+import { topics } from "./topics.schema";
+import { projects } from "./projects.schema";
 
 export const conversations = pgTable("conversations", {
   id: serial("id").primaryKey(),
