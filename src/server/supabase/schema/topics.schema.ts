@@ -8,7 +8,7 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 
-import { projects } from "./projects";
+import { projects } from "./projects.schema";
 
 export const topics = pgTable("topics", {
   id: serial("id").primaryKey(),

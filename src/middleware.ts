@@ -9,7 +9,7 @@ export const config = {
   matcher: [
     "/",
     "/login",
-    "/sign-up",
+    "/signup",
     /*
      * Match all request paths except for the ones starting with:
      * - _next/static (static files)

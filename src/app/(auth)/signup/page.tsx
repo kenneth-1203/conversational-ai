@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { env } from "@/env.mjs";
-import { LoginForm } from "@/client/components/forms/auth";
+import { SignUpForm } from "@/client/components/forms/auth";
 
 type Props = {};
 
@@ -15,7 +15,7 @@ const Page = (props: Props) => {
   return (
     <form>
       <div className="flex flex-col h-screen w-full justify-center items-center">
-        <LoginForm />
+        <SignUpForm />
       </div>
     </form>
   );

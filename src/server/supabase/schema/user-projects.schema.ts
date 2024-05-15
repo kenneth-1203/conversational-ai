@@ -1,8 +1,8 @@
 import { sql } from "drizzle-orm";
 import { integer, pgTable, serial, timestamp } from "drizzle-orm/pg-core";
 
-import { projects } from "./projects";
-import { users } from "./users";
+import { projects } from "./projects.schema";
+import { users } from "./users.schema";
 
 export const userProjects = pgTable("user_projects", {
   id: serial("id").primaryKey(),
