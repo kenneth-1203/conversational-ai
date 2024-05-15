@@ -1,4 +1,4 @@
-import { TypeOf, object, string } from "zod";
+import z, { TypeOf, object, string } from "zod";
 
 export const createUserSchema = object({
   fullName: string({ required_error: "Full name is required" }),
@@ -23,5 +23,10 @@ export const signInSchema = object({
   }),
 });
 
+export const oauthSchema = object({
+  provider: z.enum(["google", "github"]),
+});
+
 export type CreateUserInput = TypeOf<typeof createUserSchema>;
 export type SignInInput = TypeOf<typeof signInSchema>;
+export type OAuthInput = TypeOf<typeof oauthSchema>;
