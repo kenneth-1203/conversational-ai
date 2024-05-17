@@ -1,7 +1,7 @@
 import { env } from "@/env.mjs";
-import { db } from "../../supabase/db";
-import { users } from "../../supabase/schema";
-import { createClient } from "../../supabase/server";
+import { db } from "../supabase/db";
+import { users } from "../supabase/schema";
+import { createClient } from "../supabase/server";
 import {
   CreateUserInput,
   OAuthInput,

@@ -14,7 +14,7 @@ const t = initTRPC.context<Context>().create({
       data: {
         ...shape.data,
         zodError:
-          error.code === 'BAD_REQUEST' && error.cause instanceof ZodError
+          error.code === "BAD_REQUEST" && error.cause instanceof ZodError
             ? error.cause.flatten()
             : null,
       },
@@ -23,14 +23,14 @@ const t = initTRPC.context<Context>().create({
 });
 
 const isAuthed = t.middleware(({ next, ctx }) => {
-  if (!ctx.session?.user) {
+  if (!ctx.user) {
     throw new TRPCError({
       code: "UNAUTHORIZED",
     });
   }
   return next({
     ctx: {
-      session: ctx.session,
+      user: ctx.user,
     },
   });
 });

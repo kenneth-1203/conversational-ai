@@ -37,6 +37,7 @@ export const LoginForm = trpc.withTRPC(() => {
       router.push("/");
     } catch (error) {
       if (isTRPCClientError(error)) {
+        console.log(error)
         toast("Error", {
           description: error.message,
         });
@@ -52,6 +53,7 @@ export const LoginForm = trpc.withTRPC(() => {
       }
     } catch (error) {
       if (isTRPCClientError(error)) {
+        console.log(error.message)
         toast("Error", {
           description: error.message,
         });
@@ -70,16 +72,14 @@ export const LoginForm = trpc.withTRPC(() => {
           <Button
             className="w-full"
             variant={"outline"}
-            type="button"
-            onClick={() => handleOAuthLogin("google")}
+            formAction={() => handleOAuthLogin("google")}
           >
             <FaGoogle />
           </Button>
           <Button
             className="w-full"
             variant={"outline"}
-            type="button"
-            onClick={() => handleOAuthLogin("github")}
+            formAction={() => handleOAuthLogin("github")}
           >
             <FaGithub />
           </Button>

@@ -1,13 +1,13 @@
 import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
-import type { Session } from "@supabase/supabase-js";
-import { createClient } from "../../../server/supabase/server";
+import type { User } from "@supabase/supabase-js";
+import { createClient } from "../supabase/server";
 
 /**
  * Defines your inner context shape.
  * Add fields here that the inner context brings.
  */
 interface CreateInnerContextOptions extends Partial<CreateNextContextOptions> {
-  session: Session | null;
+  user: User | null;
 }
 
 /**
@@ -21,7 +21,7 @@ interface CreateInnerContextOptions extends Partial<CreateNextContextOptions> {
  */
 export async function createContextInner(opts?: CreateInnerContextOptions) {
   return {
-    session: opts?.session,
+    user: opts?.user,
   };
 }
 
@@ -32,9 +32,9 @@ export async function createContextInner(opts?: CreateInnerContextOptions) {
  */
 export async function createContext(opts: CreateNextContextOptions) {
   const supabase = createClient();
-  const { data } = await supabase.auth.getSession();
+  const { data } = await supabase.auth.getUser();
 
-  const contextInner = await createContextInner({ session: data.session });
+  const contextInner = await createContextInner({ user: data.user });
 
   return {
     ...contextInner,

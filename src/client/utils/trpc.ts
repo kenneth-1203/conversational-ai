@@ -2,7 +2,7 @@ import superjson from "superjson";
 import { createTRPCNext } from "@trpc/next";
 import { getFetch, httpBatchLink } from "@trpc/client";
 import { env } from "../../env.mjs";
-import type { AppRouter } from "../../server/trpc/routers/app.router";
+import type { AppRouter } from "../../server/routers/app.router";
 
 export const trpc = createTRPCNext<AppRouter>({
   config({ ctx }) {

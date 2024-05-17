@@ -27,6 +27,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/env.mjs"
-  ],
+, "src/server/utils/pipeline.js"  ],
   "exclude": ["node_modules"]
 }

@@ -55,7 +55,42 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
-  await supabase.auth.getUser();
+  const { data } = await supabase.auth.getUser();
+  const isAuthenticated = !!data.user;
+
+  if (!isAuthenticated) {
+    console.log("Not authenticated");
+    switch (request.nextUrl.pathname) {
+      case "/login":
+      case "/signup":
+        response = NextResponse.next({
+          request: {
+            headers: request.headers,
+          },
+        });
+      default:
+        response = NextResponse.next({
+          request: {
+            headers: request.headers,
+          },
+        });
+    }
+  }
+
+  if (isAuthenticated) {
+    console.log("Authenticated");
+    switch (request.nextUrl.pathname) {
+      case "/login":
+      case "/signup":
+        response = NextResponse.rewrite(new URL("/login", request.url));
+      default:
+        response = NextResponse.next({
+          request: {
+            headers: request.headers,
+          },
+        });
+    }
+  }
 
   return response;
 }

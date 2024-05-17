@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 import { Inter } from "next/font/google";
-import { isEmpty } from "lodash";
-import { createClient } from "@/server/supabase/server";
 import { Toaster } from "@/client/components/ui/sonner";
 import ThemeProvider from "@/client/providers/theme-provider";
 import "./globals.css";
@@ -19,11 +16,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const supabase = createClient();
-  // const user = await supabase.auth.getUser();
-
-  // if (isEmpty(user.data.user)) redirect("/login");
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
