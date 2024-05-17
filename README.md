@@ -21,11 +21,11 @@ Conversational AI is a context aware search application implemented using LLMs.
 
 - [x] Database connection and authentication with **Supabase**
 - [x] Setup API routes with **tRPC** and **React Query**
+- [x] Index and query embeddings with **OpenAI** and **LlamaIndex**
 - [ ] File uploads with **uploadthing**
 - [ ] ORM using **Drizzle ORM**
 - [ ] Validation with **Zod**
-- [ ] User subscriptions with **Stripe**
-- [ ] Checkout with **Stripe Checkout**
+- [ ] Payment subscriptions with **Stripe**
 - [ ] CRUD user roles (user and admin)
 
 ## Running Locally
