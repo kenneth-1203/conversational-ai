@@ -4,9 +4,10 @@ import {
   signInSchema,
 } from "../schema/auth.schema";
 import {
-  loginGoogleHandler,
+  loginOAuthHandler,
   loginHandler,
   signUpHandler,
+  signOutHandler,
 } from "../controllers/auth.controller";
 import { publicProcedure, router } from "..";
 
@@ -14,10 +15,11 @@ export const authRouter = router({
   signInWithPassword: publicProcedure
     .input(signInSchema)
     .mutation(({ input }) => loginHandler({ input })),
-  signInWithGoogle: publicProcedure
+  signInWithOAuth: publicProcedure
     .input(oauthSchema)
-    .mutation(({ input }) => loginGoogleHandler({ input })),
+    .mutation(({ input }) => loginOAuthHandler({ input })),
   signUp: publicProcedure
     .input(createUserSchema)
     .mutation(({ input }) => signUpHandler({ input })),
+  signOut: publicProcedure.mutation(() => signOutHandler()),
 });

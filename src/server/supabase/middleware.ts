@@ -59,7 +59,6 @@ export async function updateSession(request: NextRequest) {
   const isAuthenticated = !!data.user;
 
   if (!isAuthenticated) {
-    console.log("Not authenticated");
     switch (request.nextUrl.pathname) {
       case "/login":
       case "/signup":
@@ -68,27 +67,28 @@ export async function updateSession(request: NextRequest) {
             headers: request.headers,
           },
         });
+        break;
       default:
-        response = NextResponse.next({
-          request: {
-            headers: request.headers,
-          },
-        });
+        if (request.nextUrl.pathname.includes("/api")) return;
+        if (request.nextUrl.pathname.includes("/auth")) return;
+        response = NextResponse.redirect(new URL("/login", request.url));
+        break;
     }
   }
 
   if (isAuthenticated) {
-    console.log("Authenticated");
     switch (request.nextUrl.pathname) {
       case "/login":
       case "/signup":
-        response = NextResponse.rewrite(new URL("/login", request.url));
+        response = NextResponse.redirect(new URL("/", request.url));
+        break;
       default:
         response = NextResponse.next({
           request: {
             headers: request.headers,
           },
         });
+        break;
     }
   }
 

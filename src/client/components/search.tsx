@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { isTRPCClientError } from "@/client/utils";
 import { trpc } from "@/client/utils/trpc";
-import { Input } from "../ui/input";
+import { Input } from "./ui/input";
 
 export const Search = trpc.withTRPC(() => {
   const [query, setQuery] = useState("");

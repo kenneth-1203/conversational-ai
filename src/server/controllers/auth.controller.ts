@@ -15,7 +15,7 @@ export const loginHandler = async ({ input }: { input: SignInInput }) => {
   return { data, error };
 };
 
-export const loginGoogleHandler = async ({ input }: { input: OAuthInput }) => {
+export const loginOAuthHandler = async ({ input }: { input: OAuthInput }) => {
   const supabase = createClient();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: input.provider,
@@ -45,4 +45,11 @@ export const signUpHandler = async ({ input }: { input: CreateUserInput }) => {
   });
 
   return { data, error };
+};
+
+export const signOutHandler = async () => {
+  const supabase = createClient();
+  const { error } = await supabase.auth.signOut();
+
+  return { error };
 };
