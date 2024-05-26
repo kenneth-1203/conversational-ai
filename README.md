@@ -28,6 +28,16 @@ Conversational AI is a context aware search application implemented using LLMs.
 - [ ] Payment subscriptions with **Stripe**
 - [ ] CRUD user roles (user and admin)
 
+## Roadmap
+
+Phase 1
+- [ ] Design and implement the UI for chat page (with dynamic chat as URL params)
+- [ ] Create and edit project/topics functionalities
+
+Phase 2
+- [ ] Billing system for user subscription via Stripe API
+- [ ] Dialog flow system for users to configure how the bot should respond in certain scenarios
+
 ## Running Locally
 
 1. Clone the repository
