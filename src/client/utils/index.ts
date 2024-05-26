@@ -22,3 +22,7 @@ export function decodeJwt(token: string) {
 export function generateUuid() {
   return uuidv4();
 }
+
+export function generateRandomId() {
+  return Math.random().toString(36).substring(2, 8);
+}

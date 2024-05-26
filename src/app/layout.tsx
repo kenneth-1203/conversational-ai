@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/client/components/ui/sonner";
 import ThemeProvider from "@/client/providers/theme-provider";
+import ModalContextProvider from "@/client/providers/modal-provider";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,8 +20,8 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <ModalContextProvider>{children}</ModalContextProvider>
           <Toaster />
         </ThemeProvider>
       </body>

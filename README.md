@@ -65,7 +65,3 @@ Conversational AI is a context aware search application implemented using LLMs.
    ```bash
    npm run stripe:listen
    ```
-
-## Contributing
-
-Contributions are welcome! Please open an issue if you have any questions or suggestions. Your contributions will be acknowledged. See the [contributing guide](./CONTRIBUTING.md) for more information.
