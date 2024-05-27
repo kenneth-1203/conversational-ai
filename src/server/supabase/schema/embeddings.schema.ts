@@ -37,4 +37,3 @@ export const embeddings = pgTable("embeddings", {
 });
 
 export type Embeddings = typeof embeddings.$inferSelect;
-export type NewEmbeddings = typeof embeddings.$inferInsert;

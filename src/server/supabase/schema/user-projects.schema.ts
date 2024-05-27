@@ -21,4 +21,3 @@ export const userProjects = pgTable("user_projects", {
 });
 
 export type UserProject = typeof userProjects.$inferSelect;
-export type NewUserProject = typeof userProjects.$inferInsert;

@@ -19,7 +19,7 @@ const Main = () => {
       >
         <Heading />
         <AnimatedButton onClick={() => handleRouteChange(ROUTES.chat)}>
-          Talk to Spark
+          Start a chat
         </AnimatedButton>
       </motion.div>
     </>

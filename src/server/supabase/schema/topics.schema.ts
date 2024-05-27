@@ -24,4 +24,3 @@ export const topics = pgTable("topics", {
 });
 
 export type Topic = typeof topics.$inferSelect;
-export type NewTopic = typeof topics.$inferInsert;

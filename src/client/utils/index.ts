@@ -26,3 +26,9 @@ export function generateUuid() {
 export function generateRandomId() {
   return Math.random().toString(36).substring(2, 8);
 }
+
+export function getEmailInitials(email: string) {
+  const formatted = email.split("@")[0].split(".");
+  const initials = formatted.map((n) => n[0]);
+  return initials.join("").toUpperCase();
+}

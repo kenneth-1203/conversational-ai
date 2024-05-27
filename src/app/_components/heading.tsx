@@ -15,7 +15,7 @@ const Heading = () => {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="flex gap-4 text-7xl font-bold text-foreground mb-8"
       >
-        Spark
+        Conversational
         <span className="bg-gradient-to-tr to-blue-300 from-30% from-violet-300 bg-clip-text text-transparent animate-move-bg">
           AI
         </span>
