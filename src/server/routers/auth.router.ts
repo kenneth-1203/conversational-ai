@@ -1,8 +1,4 @@
-import {
-  createUserSchema,
-  oauthSchema,
-  signInSchema,
-} from "../schema/auth.schema";
+import { signUpSchema, oauthSchema, signInSchema } from "../schema/auth.schema";
 import {
   loginOAuthHandler,
   loginHandler,
@@ -19,7 +15,7 @@ export const authRouter = router({
     .input(oauthSchema)
     .mutation(({ input }) => loginOAuthHandler({ input })),
   signUp: publicProcedure
-    .input(createUserSchema)
+    .input(signUpSchema)
     .mutation(({ input }) => signUpHandler({ input })),
   signOut: publicProcedure.mutation(() => signOutHandler()),
 });

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 import { motion, useAnimation } from "framer-motion";
 import {
   Home,
@@ -38,9 +40,17 @@ import {
 import { Button } from "@/client/components/ui/button";
 import { Avatar, AvatarFallback } from "@/client/components/ui/avatar";
 import { getEmailInitials } from "@/client/utils";
-import { useTheme } from "next-themes";
+import { trpc } from "@/client/utils/trpc";
 
-type Props = {};
+interface Props {
+  userDetails: any;
+  userProjects: any[];
+  chatHistory: any[];
+  selectedChat: any | null;
+  handleSelectChat: (chatId: number) => void;
+  handleCreateChat: (id: string) => void;
+  handleRouteChange: (path: string) => void;
+}
 
 const userProjects = [
   {
@@ -59,10 +69,12 @@ const userProjects = [
   },
 ];
 
-const Sidebar = (props: Props) => {
+const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(true);
   const { theme, setTheme } = useTheme();
   const controls = useAnimation();
+  const router = useRouter();
+  const logout = trpc.auth.signOut.useMutation();
 
   const toggleExpand = () => {
     if (isExpanded) {
@@ -75,6 +87,11 @@ const Sidebar = (props: Props) => {
       });
     }
     setIsExpanded(!isExpanded);
+  };
+
+  const handleLogout = async () => {
+    await logout.mutateAsync();
+    router.replace("/login");
   };
 
   return (
@@ -179,7 +196,7 @@ const Sidebar = (props: Props) => {
                 </DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="flex flex-row-reverse justify-end gap-2 text-red-500 data-[highlighted]:text-red-700">
+              <DropdownMenuItem className="flex flex-row-reverse justify-end gap-2 text-red-500 data-[highlighted]:text-red-700" onClick={handleLogout}>
                 Log out
                 <DropdownMenuShortcut className="m-0">
                   <LogOut size={"16px"} />
@@ -193,4 +210,4 @@ const Sidebar = (props: Props) => {
   );
 };
 
-export default Sidebar;
+export default trpc.withTRPC(Sidebar);

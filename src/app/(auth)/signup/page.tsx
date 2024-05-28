@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import { env } from "@/env.mjs";
-import { SignUpForm } from "@/client/components/signup-form";
+import { SignUpForm } from "./_components/signup-form";
 
 type Props = {};
 

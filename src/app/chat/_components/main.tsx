@@ -1,22 +1,44 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Sidebar from "./sidebar";
+import UserConversation from "./user-conversation";
 
-type Props = {};
+interface Props {
+  userDetails: any;
+  userProjects: any[];
+  conversationsHistory: any[];
+  selectedConversation: any | null;
+}
 
-const Main = (props: Props) => {
+const Main = ({
+  userDetails,
+  userProjects,
+  conversationsHistory,
+  selectedConversation,
+}: Props) => {
+  const [isAsking, setIsAsking] = useState(false);
+  const [conversation, setConversation] = useState<any | null>(
+    selectedConversation ? { ...selectedConversation, type: "old" } : null
+  );
+
   const renderConversation = useMemo(() => {
-    return null;
-  }, []);
+    return (
+      <UserConversation
+        isAsking={isAsking}
+        conversation={conversation}
+        userDetails={userDetails}
+      />
+    );
+  }, [conversation, isAsking, userDetails]);
 
   return (
     <motion.div>
       <Sidebar />
       <div className="flex flex-col relative max-h-screen w-full overflow-hidden">
         <div className="flex flex-col-reverse flex-grow">
-          {renderConversation}
+          {/* {renderConversation} */}
         </div>
       </div>
     </motion.div>

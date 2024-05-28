@@ -1,6 +1,6 @@
 import z, { TypeOf, object, string } from "zod";
 
-export const createUserSchema = object({
+export const signUpSchema = object({
   fullName: string({ required_error: "Full name is required" }),
   email: string({ required_error: "Email is required" }).email(
     "Invalid email address"
@@ -27,6 +27,6 @@ export const oauthSchema = object({
   provider: z.enum(["google", "github"]),
 });
 
-export type CreateUserInput = TypeOf<typeof createUserSchema>;
+export type SignUpInput = TypeOf<typeof signUpSchema>;
 export type SignInInput = TypeOf<typeof signInSchema>;
 export type OAuthInput = TypeOf<typeof oauthSchema>;

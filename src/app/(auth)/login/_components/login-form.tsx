@@ -14,9 +14,9 @@ import {
 import { Label } from "@/client/components/ui/label";
 import { Input } from "@/client/components/ui/input";
 import { Button } from "@/client/components/ui/button";
-import { trpc } from "@/client/utils/trpc";
+import { Separator } from "@/client/components/ui/separator";
 import { isTRPCClientError } from "@/client/utils";
-import { Separator } from "./ui/separator";
+import { trpc } from "@/client/utils/trpc";
 
 export const LoginForm = trpc.withTRPC(() => {
   const router = useRouter();

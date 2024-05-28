@@ -2,11 +2,7 @@ import { env } from "@/env.mjs";
 import { db } from "../supabase/db";
 import { users } from "../supabase/schema";
 import { createClient } from "../supabase/server";
-import {
-  CreateUserInput,
-  OAuthInput,
-  SignInInput,
-} from "../schema/auth.schema";
+import { OAuthInput, SignInInput, SignUpInput } from "../schema/auth.schema";
 
 export const loginHandler = async ({ input }: { input: SignInInput }) => {
   const supabase = createClient();
@@ -28,10 +24,12 @@ export const loginOAuthHandler = async ({ input }: { input: OAuthInput }) => {
     },
   });
 
+  // TODO: create user row in db
+
   return { data, error };
 };
 
-export const signUpHandler = async ({ input }: { input: CreateUserInput }) => {
+export const signUpHandler = async ({ input }: { input: SignUpInput }) => {
   const supabase = createClient();
   const { data, error } = await supabase.auth.signUp({
     email: input.email,

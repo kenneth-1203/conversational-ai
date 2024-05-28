@@ -1,6 +1,6 @@
 {
-  "id": "c836b2b3-9ddb-4693-b2b6-41a976a7d095",
-  "prevId": "abc5a4a2-0e98-4ac3-93c5-25ea80be022c",
+  "id": "f76a2f52-0845-4423-9645-344db6196fcb",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "6",
   "dialect": "postgresql",
   "tables": {
@@ -109,54 +109,6 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "public.embeddings": {
-      "name": "embeddings",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "external_id": {
-          "name": "external_id",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "collection": {
-          "name": "collection",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "document": {
-          "name": "document",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "metadata": {
-          "name": "metadata",
-          "type": "jsonb",
-          "primaryKey": false,
-          "notNull": false,
-          "default": "'{}'"
-        },
-        "embeddings": {
-          "name": "embeddings",
-          "type": "vector(1536)",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
